@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * Warning! This program section of the code is very dangerous.
  * This is file is where we parse untyped user given commands into argument

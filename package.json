@@ -5,13 +5,14 @@
   "author": "Evan Louie <evan.louie@microsoft.com> (https://evanlouie.com)",
   "contributors": [],
   "license": "MIT",
+  "bin": "./dist/index.js",
   "scripts": {
-    "build": "shx rm -rf dist && webpack && pkg -t node12-linux-x64,node12-macos-x64,node12-win-x64 dist/spk.js && shx mv spk-{linux,macos,win.exe} dist",
+    "build": "shx rm -rf dist && tsc",
     "lint": "tslint 'src/**/*.ts{,x}'",
     "lint-fix": "tslint --fix 'src/**/*.ts{,x}'",
     "test": "jest --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=html",
     "test-watch": "jest --watchAll",
-    "postinstall": "cd node_modules/azure-devops-node-api && git apply ../../patches/001-azure-devops-node.patch || true",
+    "postinstall": "tsc && cd node_modules/azure-devops-node-api && git apply ../../patches/001-azure-devops-node.patch || true",
     "test-coverage-html": "jest --coverage --coverageReporters=html"
   },
   "devDependencies": {
@@ -41,7 +42,6 @@
     "ts-node": "^8.5.4",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.7.4",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   },
@@ -82,6 +82,7 @@
     "shelljs": "^0.8.3",
     "simple-git": "^1.126.0",
     "spektate": "^0.1.18",
+    "typescript": "^3.7.4",
     "uuid": "^3.3.3",
     "winston": "^3.2.1"
   },
