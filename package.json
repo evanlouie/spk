@@ -12,7 +12,7 @@
     "lint-fix": "tslint --fix 'src/**/*.ts{,x}'",
     "test": "jest --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=html",
     "test-watch": "jest --watchAll",
-    "postinstall": "tsc && cd node_modules/azure-devops-node-api && git apply ../../patches/001-azure-devops-node.patch || true",
+    "postinstall": "tsc && chmod +x ./dist/index.js && cd node_modules/azure-devops-node-api && git apply ../../patches/001-azure-devops-node.patch || true",
     "test-coverage-html": "jest --coverage --coverageReporters=html"
   },
   "devDependencies": {
